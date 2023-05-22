@@ -11,28 +11,25 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2   
         
-      - name: Set base path
-        run: echo "BASE_PATH=./" >> $GITHUB_ENV
-
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '16'
 
       - name: Install dependencies
         run: npm install
 
       - name: Build application
         run: npm run build
-        
-      - name: Update index.html paths
-        run: sed -i 's/\/vite.svg/\.\/vite.svg/g' index.html
-             && sed -i 's/\/assets/\.\.\/assets/g' index.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_dir: ./dist
+          
+      - name: Update index.html paths
+        run: sed -i 's/\/vite.svg/\.\/vite.svg/g' index.html
+             && sed -i 's/\/assets/\.\.\/assets/g' index.html
