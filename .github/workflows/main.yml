@@ -30,7 +30,3 @@ jobs:
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_dir: ./dist
-          
-      - name: Update index.html paths
-        run: sed -i 's/\/vite.svg/\.\/vite.svg/g' index.html
-             && sed -i 's/\/assets/\.\.\/assets/g' index.html
