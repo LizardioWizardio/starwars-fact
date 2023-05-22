@@ -6,4 +6,4 @@ Cтраница с отображением выбранного кол-ва ф�
 
 ## Demo
 
-Check out the live demo of Starwars Facts on GitHub Pages: [Starwars Facts Demo](https://lizardiowizardio.github.io/starwars-facts/)
+Check out the live demo of Starwars Facts on GitHub Pages: [Starwars Facts Demo](https://lizardiowizardio.github.io/starwars-fact/)
