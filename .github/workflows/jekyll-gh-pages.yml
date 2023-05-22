@@ -23,6 +23,10 @@ jobs:
 
       - name: Build application
         run: npm run build
+        
+      - name: Update index.html paths
+        run: sed -i 's/\/vite.svg/\.\/vite.svg/g' index.html
+             && sed -i 's/\/assets/\.\.\/assets/g' index.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
