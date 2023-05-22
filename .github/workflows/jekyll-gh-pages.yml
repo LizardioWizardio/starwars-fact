@@ -24,15 +24,8 @@ jobs:
       - name: Build application
         run: npm run build
 
-      - name: Configure SSH keys
-        run: |
-          mkdir -p ~/.ssh/
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          deploy_key: ${{ secrets.DEPLOY_TOKEN }}
+          deploy_key: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
